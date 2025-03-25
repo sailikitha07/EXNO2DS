@@ -24,8 +24,8 @@ STEP 8: Use heatmap method of representation to show relationships between two v
 
 ## CODING AND OUTPUT
 
-## DEVELOPED BY: MOHAN S
-## REGISTER NO: 212223240094
+## DEVELOPED BY: SAI LIKITHA
+## REGISTER NO: 212224230046
 
 ```python
 import pandas as pd
@@ -101,9 +101,9 @@ df
 
 ```python
 colors = ["blue", "orange"] 
-sns.catplot(x="Gender",col="Survived",kind="count",data=df,height=5,aspect=.7,palette=colors)
+sns.catplot(x="Gender",col="Survived",kind="count",data=df,height=5,aspect=.7,color='violet')
 ```
-![alt text](<Screenshot 2025-03-25 111509.png>)
+![Screenshot 2025-03-25 134940](https://github.com/user-attachments/assets/e4d7c7c2-844e-4910-a8ee-ccaab1aadf52)
 
 ```python
 colors = ["red", "yellow"]
@@ -156,7 +156,6 @@ sns.pairplot(df)
 ![alt text](<Screenshot 2025-03-25 112528.png>)
 
 
-
-
 # RESULT
 We have performed Exploratory Data Analysis on the given data set successfully.
+
