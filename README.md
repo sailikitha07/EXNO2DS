@@ -23,7 +23,140 @@ STEP 7: Use cross tabulation method to quantitatively analyze the relationship b
 STEP 8: Use heatmap method of representation to show relationships between two variables, one plotted on each axis.
 
 ## CODING AND OUTPUT
-        <<INCLUDE YOUR CODING AND OUTPUT SCREENSHOTS>>
+
+## DEVELOPED BY: MOHAN S
+## REGISTER NO: 212223240094
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+df=pd.read_csv("/content/titanic_dataset.csv")
+df
+```
+![alt text](<Screenshot 2025-03-25 110054.png>)
+
+
+```python
+df.info()
+```
+![alt text](<Screenshot 2025-03-25 110231.png>)
+
+```python
+df.shape 
+```
+![alt text](<Screenshot 2025-03-25 110414.png>)
+
+```python
+df.set_index("PassengerId",inplace=True)
+df.describe() 
+```
+![alt text](<Screenshot 2025-03-25 110620.png>)
+
+
+```python
+df.shape
+```
+![alt text](<Screenshot 2025-03-25 110717.png>)
+
+
+## Categorical data analysis
+
+```python
+df.nunique()
+```
+![alt text](<Screenshot 2025-03-25 110808.png>)
+
+```python
+df["Survived"].value_counts()
+```
+![alt text](<Screenshot 2025-03-25 110858.png>)
+
+```python
+per=(df["Survived"].value_counts()/df.shape[0]*100).round(2)
+per
+```
+![alt text](<Screenshot 2025-03-25 110947.png>)
+
+
+```python
+sns.countplot(data=df,x="Survived")
+```
+![alt text](<Screenshot 2025-03-25 111033.png>)
+
+```python
+df.Pclass.unique()
+```
+![alt text](<Screenshot 2025-03-25 111121.png>)
+
+
+## Bivariate Analysis
+
+```python
+df.rename(columns={'Sex':'Gender'},inplace=True)
+df
+```
+![alt text](<Screenshot 2025-03-25 111407.png>)
+
+```python
+colors = ["blue", "orange"] 
+sns.catplot(x="Gender",col="Survived",kind="count",data=df,height=5,aspect=.7,palette=colors)
+```
+![alt text](<Screenshot 2025-03-25 111509.png>)
+
+```python
+colors = ["red", "yellow"]
+sns.catplot(x="Survived",hue="Gender",data=df,kind="count",palette=colors)
+
+```
+![alt text](<Screenshot 2025-03-25 111600.png>)
+
+```python
+df.boxplot(column="Age",by="Survived")
+```
+![alt text](<Screenshot 2025-03-25 111703.png>)
+
+```python
+sns.scatterplot(x=df["Age"],y=df["Fare"])
+```
+
+![alt text](<Screenshot 2025-03-25 111749-1.png>)
+
+```python
+sns.jointplot(x="Age",y="Fare",data=df,color="red")
+```
+![alt text](<Screenshot 2025-03-25 111856-1.png>)
+
+## Multivariate Analysis
+
+```python
+fig,ax1=plt.subplots(figsize=(8,5))
+sns.boxplot(ax=ax1, x='Pclass', y='Age', hue='Gender', data=df)
+plt.show()
+```
+![alt text](<Screenshot 2025-03-25 112138.png>)
+
+```python
+sns.catplot(data=df,col="Survived",x="Gender",hue="Pclass",kind="count")
+```
+![alt text](<Screenshot 2025-03-25 112225.png>)
+
+## Co-relation
+
+```python
+corr = df.select_dtypes(include=['number']).corr()
+sns.heatmap(corr,annot=True)
+```
+![alt text](<Screenshot 2025-03-25 112354.png>)
+
+```python
+sns.pairplot(df)
+```
+![alt text](<Screenshot 2025-03-25 112528.png>)
+
+
+
 
 # RESULT
-        <<INCLUDE YOUR RESULT HERE>>
+We have performed Exploratory Data Analysis on the given data set successfully.
