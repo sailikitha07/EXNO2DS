@@ -124,9 +124,9 @@ sns.scatterplot(x=df["Age"],y=df["Fare"])
 ![alt text](<Screenshot 2025-03-25 111749-1.png>)
 
 ```python
-sns.jointplot(x="Age",y="Fare",data=df,color="red")
+sns.jointplot(x="Age",y="Fare",data=df)
 ```
-![alt text](<Screenshot 2025-03-25 111856-1.png>)
+![Screenshot 2025-03-25 140523](https://github.com/user-attachments/assets/dfd9381a-8a60-433e-a858-68356c5d520e)
 
 ## Multivariate Analysis
 
